@@ -1,332 +1,101 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-neon-void">
-    <title>정보 - 망원 클럽 비교: 리얼 데이터 기반 클럽 분석 가이드 2025</title>
-    <meta name="description" content="망원 클럽 비교 정보 페이지. 망원동 클럽 5곳의 음악 퀄리티, 인원 밀도, 가격 데이터를 기반으로 한 객관적 분석 방법론과 상세 정보를 제공합니다. 클럽 선택의 기준을 데이터로 확인하세요.">
-    <meta name="keywords" content="망원 클럽 정보, 망원 클럽 분석 방법, 망원 클럽 데이터, 망원 클럽 비교 기준, 망원동 클럽 상세 정보, 망원 클럽 FAQ">
-    <link rel="canonical" href="https://t3b05-mw-club-cmp-1.vercel.app/info">
-    <meta property="og:title" content="정보 - 망원 클럽 비교: 데이터 기반 클럽 분석 가이드">
-    <meta property="og:description" content="망원동 클럽 5곳을 음악 퀄리티, 인원 밀도, 가격 데이터로 분석한 브루탈리즘 리뷰의 상세 정보 페이지. 분석 방법론과 자주 묻는 질문을 확인하세요.">
-    <meta property="og:url" content="https://t3b05-mw-club-cmp-1.vercel.app/info">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://t3b05-mw-club-cmp-1.vercel.app/assets/og-info.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="정보 - 망원 클럽 비교: 데이터 기반 클럽 분석 가이드">
-    <meta name="twitter:description" content="망원동 클럽 5곳을 음악 퀄리티, 인원 밀도, 가격 데이터로 분석한 브루탈리즘 리뷰의 상세 정보 페이지.">
-    <style>
-        /* CSS RESET */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
-        }
-        body {
-            font-family: 'Noto Sans KR', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        /* TYPOGRAPHY & SPACING */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            text-transform: uppercase;
-        }
-        h1 {
-            font-size: clamp(2.2rem, 6vw, 3.8rem);
-            line-height: 1.1;
-            margin-bottom: 1.2rem;
-            color: #f0f0f0;
-            border-left: 6px solid #ff0055;
-            padding-left: 1rem;
-        }
-        h2 {
-            font-size: clamp(1.6rem, 4vw, 2.4rem);
-            margin: 2rem 0 1rem;
-            color: #ff0055;
-            border-bottom: 2px solid #ff0055;
-            padding-bottom: 0.3rem;
-        }
-        h3 {
-            font-size: clamp(1.2rem, 3vw, 1.6rem);
-            margin: 1.5rem 0 0.8rem;
-            color: #c0c0c0;
-        }
-        p {
-            margin-bottom: 1.2rem;
-            font-size: 1rem;
-            color: #b0b0b0;
-        }
-        a {
-            color: #00e5ff;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(0,229,255,0.3);
-            transition: color 0.2s, border-color 0.2s;
-        }
-        a:hover {
-            color: #ff0055;
-            border-bottom-color: #ff0055;
-        }
-        /* LAYOUT */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            width: 100%;
-        }
-        /* HEADER */
-        header {
-            background: #141414;
-            border-bottom: 3px solid #ff0055;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        .logo a {
-            color: #f0f0f0;
-            border-bottom: none;
-        }
-        .logo a:hover {
-            color: #ff0055;
-        }
-        /* NAV - 패턴 nav-present */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-        }
-        nav ul li a {
-            color: #b0b0b0;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            border-bottom: 2px solid transparent;
-            padding-bottom: 0.2rem;
-            transition: all 0.2s;
-        }
-        nav ul li a:hover,
-        nav ul li a.active {
-            color: #ff0055;
-            border-bottom-color: #ff0055;
-        }
-        /* HERO SECTION (정보 페이지 타이틀 영역) */
-        .info-hero {
-            padding: 3rem 0 2rem;
-            border-bottom: 1px solid #2a2a2a;
-        }
-        .info-hero p {
-            font-size: 1.1rem;
-            max-width: 800px;
-            color: #909090;
-        }
-        /* SECTION */
-        .section {
-            padding: 2rem 0;
-        }
-        .section-title {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 1.5rem;
-        }
-        .section-title::before {
-            content: "◆";
-            color: #ff0055;
-            font-size: 1.2rem;
-        }
-        /* CARD */
-        .card {
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            padding: 1.8rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid #ff0055;
-            transition: border-color 0.3s;
-        }
-        .card h3 {
-            margin-top: 0;
-        }
-        .card p:last-child {
-            margin-bottom: 0;
-        }
-        /* FAQ 아코디언 스타일 */
-        .faq-item {
-            border-bottom: 1px solid #2a2a2a;
-            padding: 1rem 0;
-        }
-        .faq-question {
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #d0d0d0;
-            transition: color 0.2s;
-        }
-        .faq-question:hover {
-            color: #ff0055;
-        }
-        .faq-question::after {
-            content: "+";
-            font-size: 1.4rem;
-            color: #ff0055;
-            transition: transform 0.3s;
-        }
-        .faq-item.active .faq-question::after {
-            content: "−";
-            transform: rotate(180deg);
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
-            padding: 0 0.5rem;
-        }
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-            padding: 0.8rem 0.5rem;
-        }
-        .faq-answer p {
-            margin-bottom: 0.5rem;
-            color: #a0a0a0;
-        }
-        /* METHODOLOGY TABLE */
-        .method-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-        }
-        .method-table th,
-        .method-table td {
-            border: 1px solid #2a2a2a;
-            padding: 0.8rem 1rem;
-            text-align: left;
-        }
-        .method-table th {
-            background: #1f1f1f;
-            color: #ff0055;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-        }
-        .method-table td {
-            background: #151515;
-            color: #c0c0c0;
-        }
-        /* FOOTER */
-        footer {
-            background: #0d0d0d;
-            border-top: 2px solid #2a2a2a;
-            padding: 2rem 0;
-            margin-top: auto;
-            text-align: center;
-        }
-        footer p {
-            font-size: 0.85rem;
-            color: #606060;
-            margin-bottom: 0.3rem;
-        }
-        footer a {
-            color: #00e5ff;
-        }
-        /* 반응형 - 패턴 responsive-768 */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-            h1 {
-                font-size: 2rem;
-                border-left-width: 4px;
-                padding-left: 0.8rem;
-            }
-            nav {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            nav ul {
-                justify-content: center;
-                gap: 0.8rem;
-            }
-            .logo {
-                text-align: center;
-                font-size: 1.4rem;
-            }
-            .card {
-                padding: 1.2rem;
-            }
-            .method-table th,
-            .method-table td {
-                padding: 0.5rem;
-                font-size: 0.85rem;
-            }
-        }
-        /* 전화번호 링크 스타일 - 패턴 tel-link */
-        a[href^="tel:"] {
-            color: #00e5ff;
-            font-weight: 700;
-            border-bottom: 2px solid #00e5ff;
-        }
-        a[href^="tel:"]:hover {
-            color: #ff0055;
-            border-bottom-color: #ff0055;
-        }
-        /* 유틸리티 */
-        .text-muted {
-            color: #707070;
-        }
-        .mt-2 {
-            margin-top: 2rem;
-        }
-        .mb-1 {
-            margin-bottom: 1rem;
-        }
-        .highlight {
-            color: #ff0055;
-            font-weight: 700;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>망원 클럽 비교 – 상세 정보</title>
+  <meta name="description" content="망원 지역에 있는 다양한 클럽의 운영 시간, 시설 특징, 이용 요금 등 상세 정보를 제공합니다. 목적별로 확인해야 할 체크리스트를 통해 현명한 선택을 돕습니다.">
+  <meta name="keywords" content="망원, 클럽 정보, 클럽 운영시간, 클럽 시설, 클럽 이용 팁">
+  <link rel="canonical" href="https://mangwon-review-hot.link-hub.org/about.html">
+  <meta property="og:title" content="망원 클럽 비교 – 상세 정보">
+  <meta property="og:description" content="망원 클럽의 구체적인 운영 정보와 이용 시 고려해야 할 항목을 한눈에 정리했습니다.">
+  <meta property="og:url" content="https://mangwon-review-hot.link-hub.org/about.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="망원 클럽 비교 – 상세 정보">
+  <meta name="twitter:description" content="망원 클럽 이용을 위한 필수 정보와 체크리스트를 확인하세요.">
+  <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo"><a href="/">망원 클럽 비교</a></div>
-                <ul>
-                    <li><a href="/">홈</a></li>
-                    <li><a href="/info" class="active">정보</a></li>
-                    <li><a href="/clubs">클럽</a></li>
-                    <li><a href="/compare">비교</a></li>
-                    <li><a href="/faq">FAQ</a></li>
-                    <li><a href="tel:021234567">문의</a></li>
-                </ul>
+  <!-- 네비게이션 (공통) -->
+  <nav class="nav-present">
+    <div class="hamburger-menu">
+      <a href="/index.html">홈</a>
+      <a href="/clubs.html">클럽 리스트</a>
+      <a href="/info.html" class="active">상세 정보</a>
+      <a href="/contact.html">연락처</a>
+    </div>
+  </nav>
+
+  <main class="v-main-shft">
+    <section class="v-body-wdr2">
+      <h1 class="v-card-lv42-title">망원 클럽 상세 정보</h1>
+      <p class="v-card-lv42-text">
+        망원은 서울 도심 속에서도 자연을 느낄 수 있는 특별한 동네입니다. 이곳에 자리한 클럽들은 규모와 분위기가 다양해 취향에 맞는 공간을 찾기 쉽습니다. 각 클럽이 제공하는 시설, 운영 시간, 이용 요금 등을 한눈에 비교하면서 나에게 맞는 선택을 할 수 있도록 도와드립니다.
+      </p>
+      <p class="v-card-lv42-text">
+        이 페이지에서는 클럽을 방문하기 전 반드시 확인해야 할 체크리스트와 상황별(인원 수, 방문 시점, 목적)로 구분된 활용 팁을 제공합니다. 예를 들어, 소규모 스터디 모임을 위한 조용한 공간이 필요하거나, 저녁 시간대에 활기찬 분위기의 댄스 파티를 원할 때 각각 어떤 클럽이 최적인지 쉽게 파악할 수 있습니다.
+      </p>
+    </section>
+
+    <section class="t-card-wrir">
+      <h2>운영 시간과 예약 정책</h2>
+      <p>
+        대부분의 클럽은 평일 18시부터 새벽 2시까지 운영하지만, 주말이나 공휴일에는 연장 운영이 가능합니다. 일부 클럽은 사전 예약을 필수로 요구하기 때문에, 방문 전 공식 홈페이지나 전화로 확인하는 것이 좋습니다. 특히, 인기가 높은 클럽은 예약 마감이 빠르게 진행되니 미리 일정을 잡아두는 것이 안전합니다.
+      </p>
+      <p>
+        예약 정책은 클럽마다 다르지만, 공통적으로 취소 시 일정 기간 내에 전액 환불이 불가능한 경우가 많습니다. 따라서 일정에 변동이 예상될 경우 ‘예약 보류’ 옵션이 있는 클럽을 선택하거나, 최소 인원 보장제도를 확인하는 것이 현명한 방법입니다.
+      </p>
+    </section>
+
+    <section class="t-card-wrir">
+      <h2>시설 특징과 부대 서비스</h2>
+      <p>
+        클럽마다 제공하는 시설이 다채롭습니다. 기본적인 댄스 플로어와 바 외에도, 사운드룸, 라운지, 라커룸, 주차 공간 등 부대 서비스가 포함된 경우가 많습니다. 특히, 최신 음향 설비와 조명 시스템을 갖춘 클럽은 파티 분위기를 한층 끌어올려 줍니다.
+      </p>
+      <p>
+        부대 서비스 중에서 가장 주목받는 것은 ‘프라이빗 룸’입니다. 소규모 모임이나 생일 파티 등을 위해 별도 방을 대여할 수 있는 옵션이 있으며, 사전 예약 시 할인 혜택을 제공하는 경우도 있습니다. 또한, 음료 리필 서비스와 무제한 와인 바를 갖춘 클럽은 비용 대비 가성비가 높아 인기가 많습니다.
+      </p>
+    </section>
+
+    <section class="t-card-wrir">
+      <h2>이용 요금 및 할인 정책</h2>
+      <p>
+        이용 요금은 입장료와 음료/음식 비용으로 구분됩니다. 입장료는 보통 10,000원~30,000원 사이이며, 주중과 주말에 차등 적용됩니다. 일부 클럽은 ‘멤버십’ 제도를 운영해 정기적으로 방문하는 고객에게 입장료를 할인해 주거나, 전용 라운지를 이용할 수 있는 혜택을 제공합니다.
+      </p>
+      <p>
+        할인 정책으로는 조조 할인, 학생 할인, 그리고 단체 할인 등이 있습니다. 조조 할인은 오후 6시 이전에 입장할 경우 적용되며, 학생 할인은 신분증 제시 시 일정 비율을 감면해 줍니다. 단체 할인은 10인 이상 예약 시 입장료를 15% 정도 할인해 주는 경우가 많으니, 친구와 함께 방문할 계획이라면 반드시 확인해 보세요.
+      </p>
+    </section>
+
+    <section class="t-card-wrir">
+      <h2>방문 목적별 체크리스트</h2>
+      <h3>친구와 파티</h3>
+      <p>
+        파티를 즐기려면 음악과 조명이 강조된 클럽을 선택하는 것이 좋습니다. 사전 예약을 통해 프라이빗 라운지나 VIP 테이블을 확보하고, 드레스 코드가 있는 경우 미리 확인해 스타일을 맞추세요. 음료 패키지를 미리 주문하면 현장에서 대기 시간을 줄일 수 있습니다.
+      </p>
+      <h3>스포츠·운동 활동</h3>
+      <p>
+        댄스 레슨이나 피트니스 클래스를 제공하는 클럽도 있습니다. 이 경우, 강사의 자격증 및 레슨 일정표를 사전에 확인하고, 체험 수업을 신청해 본 후 정규 수강 여부를 결정하는 것이 안전합니다. 시설 내 샤워실 및 락커가 있는지 여부도 중요한 체크 포인트입니다.
+      </p>
+      <h3>네트워킹·비즈니스 모임</h3>
+      <p>
+        조용하고 분위기가 차분한 라운지를 갖춘 클럽을 선택하세요. 와이파이와 전원 콘센트가 제공되는지, 실내 조명이 업무에 방해가 되지 않는지 확인하는 것이 필요합니다. 또한, 회의실 대여가 가능한지 여부와 사전 예약 시 제공되는 프로젝터·스크린 등의 부대 장비를 체크해 두면 편리합니다.
+      </p>
+    </section>
+
+    <section class="t-card-wrir">
+      <h2>자주 묻는 질문 (FAQ)</h2>
+      <h3>Q1. 클럽 내 음주 연령 제한은 어떻게 되나요?</h3>
+      <p>A. 한국 법에 따라 만 19세 미만은 음주가 금지됩니다. 일부 클럽은 청소년 입장을 전면 금지하기도 하니, 사전 확인이 필요합니다.</p>
+      <h3>Q2. 주차 시설이 없는 경우 어떻게 해야 하나요?</h3>
+      <p>A. 대부분의 클럽은 인근 공영 주차장을 이용하도록 안내합니다. 도보 거리와 대중교통 접근성을 고려해 미리 경로를 확인해 두세요.</p>
+      <h3>Q3. 예약 취소 정책은 어떻게 되나요?</h3>
+      <p>A. 클럽마다 차이가 있지만, 일반적으로 24시간 이내 취소 시 전액 환불이 불가능합니다. 예약 전 취소 가능 기간과 수수료 정책을 반드시 확인하시기 바랍니다.</p>
+    </section>
+  </main>
+
+  <footer class="x-foot-der3">
+    <p>© 2026 망원 클럽 가이드. All rights reserved.</p>
+  </footer>
 </body>
 </html>
